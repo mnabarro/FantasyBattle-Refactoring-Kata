@@ -23,18 +23,23 @@ class Player extends Target {
             //  Add friendly fire
             soak = totalDamage;
         } else if (target instanceof SimpleEnemy) {
-            SimpleEnemy simpleEnemy = (SimpleEnemy) target;
-            soak = Math.round(
-                simpleEnemy.getArmor().getDamageSoak() *
-                (
-                    ((float) simpleEnemy.getBuffs()
-                        .stream()
-                        .mapToDouble(Buff::soakModifier)
-                        .sum()) +
-                    1f
-                )
-            );
+            soak = getSoakSimpleEnemy((SimpleEnemy) target);
         }
+        return soak;
+    }
+
+    private static int getSoakSimpleEnemy(SimpleEnemy target) {
+        int soak;
+        soak = Math.round(
+            target.getArmor().getDamageSoak() *
+            (
+                ((float) target.getBuffs()
+                    .stream()
+                    .mapToDouble(Buff::soakModifier)
+                    .sum()) +
+                1f
+            )
+        );
         return soak;
     }
 
