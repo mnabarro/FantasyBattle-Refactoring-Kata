@@ -14,14 +14,13 @@ public class PlayerTest {
     void damageCalculationsWithMocks() {
         Stats stats = new Stats(0);
         SimpleEnemy target = mock(SimpleEnemy.class);
-        SimpleArmor armor = mock(SimpleArmor.class);
+        SimpleArmor armor = new SimpleArmor(5);
         Item item = new BasicItem("",0,0);
         Item swordOnRightHand = new BasicItem("flashy sword of danger",10,1f);
         Equipment equipment = new Equipment(item, swordOnRightHand, item, item, item);
         Inventory inventory = new Inventory(equipment);
 
         when(target.getArmor()).thenReturn(armor);
-        when(armor.getDamageSoak()).thenReturn(5);
 
         Damage damage = new Player(inventory, stats).calculateDamage(target);
 
