@@ -10,7 +10,6 @@ import static org.mockito.Mockito.when;
 public class PlayerTest {
 
     // choose this one if you are familiar with mocks
-    @Disabled("Test is not finished yet")
     @Test
     void damageCalculationsWithMocks() {
         Inventory inventory = mock(Inventory.class);
