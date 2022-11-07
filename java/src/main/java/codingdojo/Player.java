@@ -33,10 +33,7 @@ class Player extends Target {
   }
 
   private int getSoakSimpleEnemy(SimpleEnemy target) {
-    int soak;
-    soak = Math.round(
-      target.getArmorDamageSoak() * ((target.getSoakModifier()) + 1f));
-    return soak;
+    return target.getSoak();
   }
 
   private int getTotalDamage(Equipment equipment) {
