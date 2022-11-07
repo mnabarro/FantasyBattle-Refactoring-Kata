@@ -12,15 +12,14 @@ public class PlayerTest {
     // choose this one if you are familiar with mocks
     @Test
     void damageCalculationsWithMocks() {
-        Inventory inventory = mock(Inventory.class);
         Stats stats = new Stats(0);
         SimpleEnemy target = mock(SimpleEnemy.class);
         SimpleArmor armor = mock(SimpleArmor.class);
         Item item = new BasicItem("",0,0);
         Item swordOnRightHand = new BasicItem("flashy sword of danger",10,1f);
         Equipment equipment = new Equipment(item, swordOnRightHand, item, item, item);
+        Inventory inventory = new Inventory(equipment);
 
-        when(inventory.getEquipment()).thenReturn(equipment);
         when(target.getArmor()).thenReturn(armor);
         when(armor.getDamageSoak()).thenReturn(5);
 
