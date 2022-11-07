@@ -1,6 +1,5 @@
 package codingdojo;
 
-
 class Player extends Target {
 
   private final Equipment equipment;
@@ -36,7 +35,7 @@ class Player extends Target {
   private int getSoakSimpleEnemy(SimpleEnemy target) {
     int soak;
     soak = Math.round(
-      target.getArmor().getDamageSoak() * (((float) target.getBuffs().stream().mapToDouble(Buff::soakModifier).sum()) + 1f));
+      target.getArmorDamageSoak() * (((float) target.getBuffs().stream().mapToDouble(Buff::soakModifier).sum()) + 1f));
     return soak;
   }
 
@@ -49,7 +48,6 @@ class Player extends Target {
   private float getDamageModifier(Equipment equipment) {
     float strengthModifier = stats.getStrength() * 0.1f;
     return strengthModifier + equipment.getDamageModifier();
-
   }
 
   private int getBaseDamage(Equipment equipment) {

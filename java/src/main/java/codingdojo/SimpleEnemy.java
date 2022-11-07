@@ -1,13 +1,10 @@
 package codingdojo;
-
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class SimpleEnemy extends Target {
 
-    private Armor armor;
-    private List<Buff> buffs;
+    private final Armor armor;
+    private final List<Buff> buffs;
 
     public SimpleEnemy(Armor armor, List<Buff> buffs) {
         this.armor = armor;
@@ -18,7 +15,7 @@ public class SimpleEnemy extends Target {
         return buffs;
     }
 
-    Armor getArmor() {
-        return this.armor;
+    int getArmorDamageSoak() {
+        return this.armor.getDamageSoak();
     }
 }
