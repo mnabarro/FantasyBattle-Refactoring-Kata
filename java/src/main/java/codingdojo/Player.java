@@ -35,7 +35,7 @@ class Player extends Target {
   private int getSoakSimpleEnemy(SimpleEnemy target) {
     int soak;
     soak = Math.round(
-      target.getArmorDamageSoak() * (((float) target.getBuffs().stream().mapToDouble(Buff::soakModifier).sum()) + 1f));
+      target.getArmorDamageSoak() * ((target.getSoakModifier()) + 1f));
     return soak;
   }
 
