@@ -3,23 +3,16 @@ package codingdojo;
 
 class Player extends Target {
 
-  private final Inventory inventory;
+  private final Equipment equipment;
   private final Stats stats;
 
   Player(Inventory inventory, Stats stats) {
-    this.inventory = inventory;
+    this.equipment = inventory.getEquipment();
     this.stats = stats;
   }
 
-  private int getSoakSimpleEnemy(SimpleEnemy target) {
-    int soak;
-    soak = Math.round(
-      target.getArmor().getDamageSoak() * (((float) target.getBuffs().stream().mapToDouble(Buff::soakModifier).sum()) + 1f));
-    return soak;
-  }
-
   Damage calculateDamage(Target target) {
-    int totalDamage = getTotalDamage(this.inventory.getEquipment());
+    int totalDamage = getTotalDamage(this.equipment);
     int soak = getSoak(target, totalDamage);
     return new Damage(Math.max(0, totalDamage - soak));
   }
@@ -38,6 +31,13 @@ class Player extends Target {
     // TODO: Not implemented yet
     //  Add friendly fire
     return totalDamage;
+  }
+
+  private int getSoakSimpleEnemy(SimpleEnemy target) {
+    int soak;
+    soak = Math.round(
+      target.getArmor().getDamageSoak() * (((float) target.getBuffs().stream().mapToDouble(Buff::soakModifier).sum()) + 1f));
+    return soak;
   }
 
   private int getTotalDamage(Equipment equipment) {
