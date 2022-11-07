@@ -1,30 +1,31 @@
 package codingdojo;
 
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class PlayerTest {
 
     // choose this one if you are familiar with mocks
     @Test
     void damageCalculationsWithMocks() {
-        Stats stats = new Stats(0);
+        Stats stats = new Stats(10);
         SimpleArmor armor = new SimpleArmor(5);
         Item item = new BasicItem("",0,0);
         Item swordOnRightHand = new BasicItem("flashy sword of danger",10,1f);
         Equipment equipment = new Equipment(item, swordOnRightHand, item, item, item);
         Inventory inventory = new Inventory(equipment);
-        SimpleEnemy target = mock(SimpleEnemy.class);
+        BasicBuff buff = new BasicBuff(1,1);
+        List<Buff> buffs = Arrays.asList(buff);
 
-        when(target.getArmor()).thenReturn(armor);
+        SimpleEnemy target = new SimpleEnemy(armor,buffs);
 
         Damage damage = new Player(inventory, stats).calculateDamage(target);
 
-        assertEquals(5, damage.getAmount());
+        assertEquals(10, damage.getAmount());
     }
 
     // choose this one if you are not familiar with mocks
