@@ -11,7 +11,7 @@ class Player extends Target {
     this.stats = stats;
   }
 
-  private static int getSoakSimpleEnemy(SimpleEnemy target) {
+  private int getSoakSimpleEnemy(SimpleEnemy target) {
     int soak;
     soak = Math.round(
       target.getArmor().getDamageSoak() * (((float) target.getBuffs().stream().mapToDouble(Buff::soakModifier).sum()) + 1f));
