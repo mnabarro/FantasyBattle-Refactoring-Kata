@@ -21,7 +21,7 @@ class Player extends Target {
     if (target instanceof Player) {
       soak = getSoakPlayerInstance(totalDamage);
     } else if (target instanceof SimpleEnemy) {
-      soak = getSoakSimpleEnemy((SimpleEnemy) target);
+      soak = ((SimpleEnemy) target).getSoak();
     }
     return soak;
   }
@@ -30,10 +30,6 @@ class Player extends Target {
     // TODO: Not implemented yet
     //  Add friendly fire
     return totalDamage;
-  }
-
-  private int getSoakSimpleEnemy(SimpleEnemy target) {
-    return target.getSoak();
   }
 
   private int getTotalDamage(Equipment equipment) {
