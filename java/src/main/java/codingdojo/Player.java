@@ -19,7 +19,7 @@ class Player extends Target {
   }
 
   Damage calculateDamage(Target target) {
-    int totalDamage = getTotalDamage();
+    int totalDamage = getTotalDamage(this.inventory.getEquipment());
     int soak = getSoak(target, totalDamage);
     return new Damage(Math.max(0, totalDamage - soak));
   }
@@ -40,21 +40,19 @@ class Player extends Target {
     return totalDamage;
   }
 
-  private int getTotalDamage() {
-    int baseDamage = getBaseDamage();
-    float damageModifier = getDamageModifier();
+  private int getTotalDamage(Equipment equipment) {
+    int baseDamage = getBaseDamage(equipment);
+    float damageModifier = getDamageModifier(equipment);
     return Math.round(baseDamage * damageModifier);
   }
 
-  private float getDamageModifier() {
-    Equipment equipment = this.inventory.getEquipment();
+  private float getDamageModifier(Equipment equipment) {
     float strengthModifier = stats.getStrength() * 0.1f;
     return strengthModifier + equipment.getDamageModifier();
 
   }
 
-  private int getBaseDamage() {
-    Equipment equipment = this.inventory.getEquipment();
+  private int getBaseDamage(Equipment equipment) {
     return equipment.getBaseDamage();
   }
 }
