@@ -25,7 +25,7 @@ public class PlayerTest {
   }
 
   @Test
-  void calculateDamageProducedByWithFlashySwordOfDanger() {
+  void calculateDamageWithFlashySwordOfDanger() {
     stats = new Stats(10);
     Item swordOnRightHand = new BasicItem("flashy sword of danger", 10, 1f);
     Equipment equipment = new Equipment(notUsedItem, swordOnRightHand, notUsedItem, notUsedItem, notUsedItem);
@@ -35,7 +35,7 @@ public class PlayerTest {
     assertEquals(10, damage.getAmount());
   }
   @Test
-  void calculateDamageProducedByWithExcalibur() {
+  void calculateDamageWithExcalibur() {
     stats = new Stats(0);
     Item swordOnRightHand = new BasicItem("Excalibur", 20, 1.5f);
     Equipment equipment = new Equipment(notUsedItem, swordOnRightHand, notUsedItem, notUsedItem, notUsedItem);

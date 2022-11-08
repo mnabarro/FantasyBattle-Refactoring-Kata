@@ -1,7 +1,7 @@
 package codingdojo;
 
 class Damage {
-    private int amount;
+    private final int amount;
 
     Damage(int amount) {
         this.amount = amount;
@@ -9,9 +9,5 @@ class Damage {
 
     int getAmount() {
         return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
     }
 }
