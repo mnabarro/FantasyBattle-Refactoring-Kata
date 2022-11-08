@@ -17,7 +17,6 @@ public class PlayerTest {
 
   @BeforeEach
   void setup() {
-    stats = new Stats(10);
     armor = new SimpleArmor(5);
     notUsedItem = new BasicItem("", 0, 0);
     buff = new BasicBuff(1, 1);
@@ -27,11 +26,22 @@ public class PlayerTest {
 
   @Test
   void calculateDamageProducedByWithFlashySwordOfDanger() {
+    stats = new Stats(0);
     Item swordOnRightHand = new BasicItem("flashy sword of danger", 10, 1f);
     Equipment equipment = new Equipment(notUsedItem, swordOnRightHand, notUsedItem, notUsedItem, notUsedItem);
 
     Damage damage = new Player(equipment, stats).calculateDamage(target);
 
     assertEquals(10, damage.getAmount());
+  }
+  @Test
+  void calculateDamageProducedByWithExcalibur() {
+    stats = new Stats(0);
+    Item swordOnRightHand = new BasicItem("Excalibur", 20, 1.5f);
+    Equipment equipment = new Equipment(notUsedItem, swordOnRightHand, notUsedItem, notUsedItem, notUsedItem);
+
+    Damage damage = new Player(equipment, stats).calculateDamage(target);
+
+    assertEquals(20, damage.getAmount());
   }
 }
