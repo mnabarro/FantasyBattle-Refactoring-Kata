@@ -26,22 +26,22 @@ public class PlayerTest {
 
   @Test
   void calculateDamageWithFlashySwordOfDanger() {
-    stats = new Stats(10);
+    stats = new Stats(5);
     Item swordOnRightHand = new BasicItem("flashy sword of danger", 10, 1f);
     Equipment equipment = new Equipment(notUsedItem, swordOnRightHand, notUsedItem, notUsedItem, notUsedItem);
 
     Damage damage = new Player(equipment, stats).calculateDamage(target);
 
-    assertEquals(10, damage.getAmount());
+    assertEquals(5, damage.getAmount());
   }
   @Test
   void calculateDamageWithExcalibur() {
-    stats = new Stats(0);
+    stats = new Stats(3);
     Item swordOnRightHand = new BasicItem("Excalibur", 20, 1.5f);
     Equipment equipment = new Equipment(notUsedItem, swordOnRightHand, notUsedItem, notUsedItem, notUsedItem);
 
     Damage damage = new Player(equipment, stats).calculateDamage(target);
 
-    assertEquals(20, damage.getAmount());
+    assertEquals(26, damage.getAmount());
   }
 }
