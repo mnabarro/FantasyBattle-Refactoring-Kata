@@ -20,18 +20,18 @@ class Equipment {
 
     int getBaseDamage() {
 
-        return this.leftHand.getBaseDamage() +
-          this.rightHand.getBaseDamage() +
-          this.head.getBaseDamage() +
-          this.feet.getBaseDamage() +
-          this.chest.getBaseDamage();
+        return leftHand.getBaseDamage() +
+          rightHand.getBaseDamage() +
+          head.getBaseDamage() +
+          feet.getBaseDamage() +
+          chest.getBaseDamage();
     }
     float getDamageModifier() {
 
-        return this.leftHand.getDamageModifier() +
-          this.rightHand.getDamageModifier() +
-          this.head.getDamageModifier() +
-          this.feet.getDamageModifier() +
-          this.chest.getDamageModifier();
+        return leftHand.getDamageModifier() +
+          rightHand.getDamageModifier() +
+          head.getDamageModifier() +
+          feet.getDamageModifier() +
+          chest.getDamageModifier();
     }
 }

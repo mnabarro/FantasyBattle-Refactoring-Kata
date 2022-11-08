@@ -11,7 +11,7 @@ class Player extends Target {
   }
 
   Damage calculateDamage(Target target) {
-    int totalDamage = getTotalDamage(this.equipment);
+    int totalDamage = getTotalDamage(equipment);
     int soak = getSoak(target, totalDamage);
     return new Damage(Math.max(0, totalDamage - soak));
   }
