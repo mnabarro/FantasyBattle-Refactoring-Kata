@@ -2,24 +2,32 @@ package codingdojo;
 
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PlayerTest {
 
-    // choose this one if you are familiar with mocks
+    Stats stats;
+    SimpleArmor armor;
+    Item notUsedItem;
+    BasicBuff buff;
+    List<Buff> buffs;
+    SimpleEnemy target;
+    @BeforeEach
+    void setup () {
+        stats = new Stats(10);
+        armor = new SimpleArmor(5);
+        notUsedItem = new BasicItem("",0,0);
+        buff = new BasicBuff(1,1);
+        buffs = Arrays.asList(buff);
+        target = new SimpleEnemy(armor,buffs);
+    }
     @Test
-    void damageCalculationsWithMocks() {
-        Stats stats = new Stats(10);
-        SimpleArmor armor = new SimpleArmor(5);
-        Item item = new BasicItem("",0,0);
+    void calculateDamageProducedByWithFlashySwordOfDanger() {
         Item swordOnRightHand = new BasicItem("flashy sword of danger",10,1f);
-        Equipment equipment = new Equipment(item, swordOnRightHand, item, item, item);
-        BasicBuff buff = new BasicBuff(1,1);
-        List<Buff> buffs = Arrays.asList(buff);
-
-        SimpleEnemy target = new SimpleEnemy(armor,buffs);
+        Equipment equipment = new Equipment(notUsedItem, swordOnRightHand, notUsedItem, notUsedItem, notUsedItem);
 
         Damage damage = new Player(equipment, stats).calculateDamage(target);
 
