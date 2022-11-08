@@ -5,8 +5,8 @@ class Player extends Target {
   private final Equipment equipment;
   private final Stats stats;
 
-  Player(Inventory inventory, Stats stats) {
-    this.equipment = inventory.getEquipment();
+  Player(Equipment equipment, Stats stats) {
+    this.equipment = equipment;
     this.stats = stats;
   }
 
