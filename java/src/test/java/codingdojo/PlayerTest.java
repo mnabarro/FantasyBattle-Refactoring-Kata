@@ -26,7 +26,7 @@ public class PlayerTest {
 
   @Test
   void calculateDamageProducedByWithFlashySwordOfDanger() {
-    stats = new Stats(0);
+    stats = new Stats(10);
     Item swordOnRightHand = new BasicItem("flashy sword of danger", 10, 1f);
     Equipment equipment = new Equipment(notUsedItem, swordOnRightHand, notUsedItem, notUsedItem, notUsedItem);
 
