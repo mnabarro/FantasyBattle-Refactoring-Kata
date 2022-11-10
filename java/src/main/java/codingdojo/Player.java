@@ -3,11 +3,9 @@ package codingdojo;
 class Player extends Target {
 
   private final Equipment equipment;
-  private final Stats stats;
 
-  Player(Equipment equipment, Stats stats) {
+  Player(Equipment equipment) {
     this.equipment = equipment;
-    this.stats = stats;
   }
 
   Damage calculateDamage(Target target) {
@@ -39,8 +37,7 @@ class Player extends Target {
   }
 
   private float getDamageModifier(Equipment equipment) {
-    float strengthModifier = stats.getStrength() * 0.1f;
-    return strengthModifier + equipment.getDamageModifier();
+    return equipment.getDamageModifier();
   }
 
   private int getBaseDamage(Equipment equipment) {

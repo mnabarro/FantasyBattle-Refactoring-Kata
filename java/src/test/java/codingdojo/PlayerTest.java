@@ -28,9 +28,9 @@ public class PlayerTest {
   void calculateDamageWithFlashySwordOfDanger() {
     stats = new Stats(5);
     Item swordOnRightHand = new BasicItem("flashy sword of danger", 10, 1f);
-    Equipment equipment = new Equipment(notUsedItem, swordOnRightHand, notUsedItem, notUsedItem, notUsedItem);
+    Equipment equipment = new Equipment(notUsedItem, swordOnRightHand, notUsedItem, notUsedItem, notUsedItem, stats);
 
-    Damage damage = new Player(equipment, stats).calculateDamage(target);
+    Damage damage = new Player(equipment).calculateDamage(target);
 
     assertEquals(5, damage.getAmount());
   }
@@ -38,9 +38,9 @@ public class PlayerTest {
   void calculateDamageWithExcalibur() {
     stats = new Stats(3);
     Item swordOnRightHand = new BasicItem("Excalibur", 20, 1.5f);
-    Equipment equipment = new Equipment(notUsedItem, swordOnRightHand, notUsedItem, notUsedItem, notUsedItem);
+    Equipment equipment = new Equipment(notUsedItem, swordOnRightHand, notUsedItem, notUsedItem, notUsedItem,stats);
 
-    Damage damage = new Player(equipment, stats).calculateDamage(target);
+    Damage damage = new Player(equipment).calculateDamage(target);
 
     assertEquals(26, damage.getAmount());
   }

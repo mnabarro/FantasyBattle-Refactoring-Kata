@@ -10,12 +10,16 @@ class Equipment {
     private final Item feet;
     private final Item chest;
 
-    Equipment(Item leftHand, Item rightHand, Item head, Item feet, Item chest) {
+    private final Stats stats;
+
+
+    Equipment(Item leftHand, Item rightHand, Item head, Item feet, Item chest, Stats stats) {
         this.leftHand = leftHand;
         this.rightHand = rightHand;
         this.head = head;
         this.feet = feet;
         this.chest = chest;
+        this.stats = stats;
     }
 
     int getBaseDamage() {
@@ -32,6 +36,7 @@ class Equipment {
           rightHand.getDamageModifier() +
           head.getDamageModifier() +
           feet.getDamageModifier() +
-          chest.getDamageModifier();
+          chest.getDamageModifier() +
+          stats.getStrengthModifier();
     }
 }
