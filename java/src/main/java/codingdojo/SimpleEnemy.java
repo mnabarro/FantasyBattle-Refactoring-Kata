@@ -11,10 +11,6 @@ public class SimpleEnemy extends Target {
   }
 
   int getSoak() {
-    return Math.round(getArmorDamageSoak() * ((buffs.getSoakModifier()) + 1f));
-  }
-
-  private int getArmorDamageSoak() {
-    return armor.getDamageSoak();
+    return Math.round(armor.getDamageSoak() * ((buffs.getSoakModifier()) + 1f));
   }
 }
