@@ -1,10 +1,10 @@
 package codingdojo;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PlayerTest {
 
@@ -34,11 +34,12 @@ public class PlayerTest {
 
     assertEquals(5, damage.getAmount());
   }
+
   @Test
   void calculateDamageWithExcalibur() {
     stats = new Stats(3);
     Item swordOnRightHand = new BasicItem("Excalibur", 20, 1.5f);
-    Equipment equipment = new Equipment(notUsedItem, swordOnRightHand, notUsedItem, notUsedItem, notUsedItem,stats);
+    Equipment equipment = new Equipment(notUsedItem, swordOnRightHand, notUsedItem, notUsedItem, notUsedItem, stats);
 
     Damage damage = new Player(equipment).calculateDamage(target);
 
