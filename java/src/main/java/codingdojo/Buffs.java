@@ -12,9 +12,7 @@ public class Buffs {
   public void addBuff(Buff buff) {
     buffs.add(buff);
   }
-  public List<Buff> getBuffs() {
-    return this.buffs;
-  }
+
   public float getSoakModifier() {
     return (float) buffs.stream().mapToDouble(Buff::soakModifier).sum();
   }
