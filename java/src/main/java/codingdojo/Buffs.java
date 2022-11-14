@@ -1,13 +1,14 @@
 package codingdojo;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Optional;
 
 public class Buffs {
-  private final List<Buff> buffs;
+  private final ArrayList<Buff> buffs;
 
-  public Buffs() {
-    buffs = Arrays.asList();
+  public Buffs(Optional<Buff> firstBuff) {
+    buffs = new ArrayList<>();
+    firstBuff.ifPresent(this::addBuff);
   }
   public void addBuff(Buff buff) {
     buffs.add(buff);

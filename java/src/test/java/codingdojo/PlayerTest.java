@@ -1,6 +1,6 @@
 package codingdojo;
 
-import java.util.List;
+import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ public class PlayerTest {
   SimpleArmor armor;
   Item notUsedItem;
   BasicBuff buff;
-  List<Buff> buffs;
+  Buffs buffs;
   SimpleEnemy target;
 
   @BeforeEach
@@ -20,7 +20,7 @@ public class PlayerTest {
     armor = new SimpleArmor(5);
     notUsedItem = new BasicItem("", 0, 0);
     buff = new BasicBuff(1, 1);
-    buffs = List.of(buff);
+    buffs = new Buffs(Optional.of(buff));
     target = new SimpleEnemy(armor, buffs);
   }
 
