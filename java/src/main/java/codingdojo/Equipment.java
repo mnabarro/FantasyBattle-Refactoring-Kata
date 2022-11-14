@@ -12,7 +12,6 @@ class Equipment {
 
   private final Stats stats;
 
-
   Equipment(Item leftHand, Item rightHand, Item head, Item feet, Item chest, Stats stats) {
     this.leftHand = leftHand;
     this.rightHand = rightHand;

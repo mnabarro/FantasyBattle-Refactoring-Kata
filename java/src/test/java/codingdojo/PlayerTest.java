@@ -18,7 +18,7 @@ public class PlayerTest {
   @BeforeEach
   void setup() {
     armor = new SimpleArmor(5);
-    notUsedItem = new BasicItem("", 0, 0);
+    notUsedItem = new BasicItem("not used item", 0, 0);
     buff = new BasicBuff(1, 1);
     buffs = new Buffs(Optional.of(buff));
     target = new SimpleEnemy(armor, buffs);
