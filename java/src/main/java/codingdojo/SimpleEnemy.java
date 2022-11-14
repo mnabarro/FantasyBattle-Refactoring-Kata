@@ -1,5 +1,4 @@
 package codingdojo;
-import java.util.List;
 
 public class SimpleEnemy extends Target {
 
